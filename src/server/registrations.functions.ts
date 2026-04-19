@@ -10,7 +10,10 @@ const RegistrationSchema = z.object({
   child_age: z
     .union([z.coerce.number().int().min(8).max(16), z.literal("")])
     .optional(),
+  child_email: z.string().trim().email("Neplatný email").max(320).optional().or(z.literal("")),
+  child_phone: z.string().trim().max(40).optional().or(z.literal("")),
   preferred_turnus: z.enum(["first", "second", "any", "other"]),
+  preferred_turnus_other: z.string().trim().max(500).optional().or(z.literal("")),
   notes: z.string().trim().max(1000).optional().or(z.literal("")),
 });
 
@@ -28,7 +31,10 @@ export const submitRegistration = createServerFn({ method: "POST" })
         typeof data.child_age === "number" && !Number.isNaN(data.child_age)
           ? data.child_age
           : null,
+      child_email: data.child_email ? data.child_email : null,
+      child_phone: data.child_phone ? data.child_phone : null,
       preferred_turnus: data.preferred_turnus,
+      preferred_turnus_other: data.preferred_turnus_other ? data.preferred_turnus_other : null,
       notes: data.notes ? data.notes : null,
     };
 

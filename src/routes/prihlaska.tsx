@@ -30,6 +30,7 @@ function PrihlaskaPage() {
   const navigate = useNavigate();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [selectedTurnus, setSelectedTurnus] = useState<string>("first");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -47,11 +48,14 @@ function PrihlaskaPage() {
           parent_phone: ((fd.get("parent_phone") as string) || "").trim(),
           child_name: ((fd.get("child_name") as string) || "").trim(),
           child_age: childAge === "" ? "" : Number(childAge),
+          child_email: ((fd.get("child_email") as string) || "").trim(),
+          child_phone: ((fd.get("child_phone") as string) || "").trim(),
           preferred_turnus: (fd.get("preferred_turnus") as
             | "first"
             | "second"
             | "any"
             | "other") || "any",
+          preferred_turnus_other: ((fd.get("preferred_turnus_other") as string) || "").trim(),
           notes: ((fd.get("notes") as string) || "").trim(),
         },
       });
@@ -126,10 +130,10 @@ function PrihlaskaPage() {
       <main className="flex-1">
         <div className="container-px mx-auto max-w-3xl py-16 md:py-24">
           <div className="eyebrow">Nezáväzná prihláška</div>
-          <h1 className="display-lg mt-4">Zapíšte záujem.</h1>
+          <h1 className="display-lg mt-4">Zaregistrujte sa nezáväzne!</h1>
           <p className="mt-6 text-muted-foreground max-w-xl">
             Vyplnenie trvá menej ako minútu. Nezáväzne — pomáha nám to odhadnúť záujem a otvoriť
-            správny počet turnusov. Ozveme sa vám s detailmi.
+            správny počet turnusov. Neskôr sa vám ozveme s detailmi :)
           </p>
 
           <form onSubmit={onSubmit} className="mt-12 space-y-10">
@@ -146,6 +150,10 @@ function PrihlaskaPage() {
                 <Field label="Meno dieťaťa" name="child_name" maxLength={200} />
                 <Field label="Vek" name="child_age" type="number" min={8} max={16} />
               </div>
+              <div className="grid gap-6 md:grid-cols-2">
+                <Field label="Email dieťaťa" name="child_email" type="email" maxLength={320} />
+                <Field label="Telefón dieťaťa" name="child_phone" type="tel" maxLength={40} />
+              </div>
             </Fieldset>
 
             <Fieldset title="Preferovaný turnus">
@@ -154,8 +162,8 @@ function PrihlaskaPage() {
                   { v: "first", l: "1. turnus — začiatok júla" },
                   { v: "second", l: "2. turnus — druhý júlový týždeň" },
                   { v: "any", l: "Je mi to jedno (jeden z prvých dvoch)" },
-                  { v: "other", l: "Iný termín / mimo júla" },
-                ].map((opt, i) => (
+                  { v: "other", l: "Iný termín" },
+                ].map((opt) => (
                   <label
                     key={opt.v}
                     className="bg-background flex items-center gap-4 p-4 cursor-pointer hover:bg-secondary transition-colors"
@@ -164,13 +172,24 @@ function PrihlaskaPage() {
                       type="radio"
                       name="preferred_turnus"
                       value={opt.v}
-                      defaultChecked={i === 0}
+                      checked={selectedTurnus === opt.v}
+                      onChange={(e) => setSelectedTurnus(e.target.value)}
                       className="h-4 w-4 accent-primary"
                     />
                     <span className="text-sm font-medium">{opt.l}</span>
                   </label>
                 ))}
               </div>
+              {selectedTurnus === "other" && (
+                <div className="mt-6">
+                  <Field 
+                    label="Aký termín by vám vyhovoval?" 
+                    name="preferred_turnus_other" 
+                    maxLength={500}
+                    placeholder="Napr. august, september, alebo konkrétny dátum…"
+                  />
+                </div>
+              )}
             </Fieldset>
 
             <Fieldset title="Otázky alebo poznámky">
@@ -227,6 +246,7 @@ function Field({
   maxLength,
   min,
   max,
+  placeholder,
 }: {
   label: string;
   name: string;
@@ -235,6 +255,7 @@ function Field({
   maxLength?: number;
   min?: number;
   max?: number;
+  placeholder?: string;
 }) {
   return (
     <label className="block">
@@ -246,6 +267,7 @@ function Field({
         maxLength={maxLength}
         min={min}
         max={max}
+        placeholder={placeholder}
         className="w-full border border-foreground/20 bg-background px-4 py-3 text-sm focus:border-primary focus:outline-none"
       />
     </label>

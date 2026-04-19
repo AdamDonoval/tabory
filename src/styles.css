@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -35,8 +36,8 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
 }
 
 :root {
@@ -153,7 +154,7 @@
   }
 
   .display-xl {
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-size: clamp(1.875rem, 4.5vw, 4rem);
     line-height: 0.95;
     font-weight: 700;
     letter-spacing: -0.03em;
