@@ -8,6 +8,7 @@ import foundersImg from "@/assets/founders.png";
 import spotLogoImg from "@/assets/the_spot_slovakia_logo.jpeg";
 import adamImg from "@/assets/adam.jpeg";
 import romanImg from "@/assets/roman.jpg";
+import samoImg from "@/assets/samo.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -246,7 +247,7 @@ function Info() {
 function Team() {
   const members = [
     { name: "Hlavný vedúci", role: "Koordinátor programu", initials: "HV", image: adamImg },
-    { name: "Vedúca workshopov", role: "Lektorka & mentor", initials: "VW" },
+    { name: "Vedúca workshopov", role: "Lektorka & mentor", initials: "VW", image: samoImg },
     { name: "Outdoor vedúci", role: "Šport & príroda", initials: "OV", image: romanImg },
     { name: "Mentor podnikavosti", role: "Founder coach", initials: "MP" },
   ];
