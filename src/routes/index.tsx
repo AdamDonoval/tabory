@@ -2,13 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import heroImg from "@/assets/spot.png";
-import outdoorImg from "@/assets/outdoor.jpg";
-import workshopImg from "@/assets/workshop.jpg";
 import foundersImg from "@/assets/founders.png";
 import spotLogoImg from "@/assets/the_spot_slovakia_logo.jpeg";
+import aerostacksImg from "@/assets/aerostacks-png.png";
+import smndImg from "@/assets/smnd.svg";
 import adamImg from "@/assets/adam.jpeg";
 import romanImg from "@/assets/roman.jpg";
 import samoImg from "@/assets/samo.jpeg";
+import teoImg from "@/assets/teo.JPG";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -55,67 +56,66 @@ function LandingPage() {
 /* ----------------------------- HERO ----------------------------- */
 function Hero() {
   return (
-    <section className="relative bg-primary text-primary-foreground pt-32 pb-20 md:pt-44 md:pb-28">
+    <section className="relative bg-primary text-primary-foreground pt-12 pb-28 md:pt-16 md:pb-36">
       <div className="container-px mx-auto max-w-7xl rounded-2xl overflow-hidden bg-primary">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-8 items-center p-8 md:p-12">
-        <div className="md:col-span-7">
-          <div className="eyebrow text-primary-foreground/60">Bratislava · Júl 2026</div>
-          <h1 className="display-xl mt-4">
-            Letný detský tábor<br />
-            pre podnikavé mozgy<br />
-            <span className="text-primary-foreground/60">v centre startupovej scény</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-base md:text-lg text-primary-foreground/80">
-            Päť dní plných hier, ktoré učia podnikavosti. Workshopy vedené osobnostami slovenskej startupovej scény, komplexné výzvy v tímoch, a každý deň niečo nové. Program dopĺňaný prírodou, športom a piknikom.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              to="/prihlaska"
-              className="bg-primary-foreground px-7 py-4 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
-              style={{ borderRadius: "16px" }}
-            >
-              Nezáväzná prihláška →
-            </Link>
-            <a
-              href="#vizia"
-              className="border border-primary-foreground/30 px-7 py-4 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
-              style={{ borderRadius: "16px" }}
-            >
-              Zistiť viac
-            </a>
-          </div>
-
-         
-        </div>
-
-        <div className="md:col-span-5">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
-            <img
-              src={heroImg}
-              alt="Deti pracujú na nápade pri laptope na workshope"
-              width={1600}
-              height={1024}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-            <div className="absolute bottom-0 left-0 bg-primary-foreground text-primary px-4 py-2 text-xs font-bold uppercase tracking-wider">
-              The Spot
+        <div className="grid gap-12 md:grid-cols-12 md:gap-8 items-center">
+          <div className="md:col-span-7 py-10 md:py-14">
+            <div className="eyebrow text-primary-foreground/60">Bratislava · Júl 2026</div>
+            <h1 className="display-xl mt-4">
+              Letný detský tábor<br />
+              pre podnikavé mozgy<br />
+              <span className="text-primary-foreground/60">v centre startupovej scény</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-base md:text-lg text-primary-foreground/80">
+              Päť dní plných hier, ktoré učia podnikavosti. Workshopy vedené osobnostami slovenskej
+              startupovej scény, komplexné výzvy v tímoch, a každý deň niečo nové. Program dopĺňaný
+              prírodou, športom a piknikom.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                to="/prihlaska"
+                className="bg-primary-foreground px-7 py-4 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
+                style={{ borderRadius: "16px" }}
+              >
+                Nezáväzná prihláška →
+              </Link>
+              <a
+                href="#vizia"
+                className="border border-primary-foreground/30 px-7 py-4 text-sm font-semibold transition-colors hover:bg-primary-foreground/10"
+                style={{ borderRadius: "16px" }}
+              >
+                Zistiť viac
+              </a>
             </div>
           </div>
-          <a
-            href="https://maps.app.goo.gl/7GGSfwviXU5LKSuGA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 flex items-center gap-2 text-primary-foreground transition-opacity hover:opacity-70"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"/>
-            </svg>
-            <span className="text-sm font-semibold">Pozrieť na mape</span>
-          </a>
+
+          <div className="md:col-span-5">
+            <div className="relative md:ml-auto md:max-w-170">
+              <img
+                src={heroImg}
+                alt="Deti pracujú na nápade pri laptope na workshope"
+                width={1600}
+                height={1024}
+                className="block h-auto w-full"
+              />
+              <div className="absolute bottom-0 left-0 bg-primary-foreground text-primary px-4 py-2 text-xs font-bold uppercase tracking-wider">
+                The Spot
+              </div>
+            </div>
+            <a
+              href="https://maps.app.goo.gl/7GGSfwviXU5LKSuGA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 flex items-center gap-2 text-primary-foreground transition-opacity hover:opacity-70"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z" />
+              </svg>
+              <span className="text-sm font-semibold">Pozrieť na mape</span>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
     </section>
   );
 }
@@ -202,7 +202,7 @@ function Info() {
     { label: "Strava", value: "3× denne — desiata, obed, olovrant" },
     { label: "Cena", value: <><span style={{ textDecoration: 'line-through', fontWeight: 'normal' }}>240€</span> 195€ <span style={{ fontWeight: 'normal', fontSize: '0.875em' }}>(zľava na druhé dieťa)</span></> },
     { label: "Termíny", value: "6.6 - 10.6, 13.6 - 17.6" },
-    { label: "Miesto", value: <a href="https://maps.app.goo.gl/ZJzCLHp4MYCbciJ7A" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }} onMouseEnter={(e) => e.target.style.textDecoration = 'underline'} onMouseLeave={(e) => e.target.style.textDecoration = 'none'}>The Spot, Bratislava Bottova 2</a> },
+    { label: "Miesto", value: <a href="https://maps.app.goo.gl/ZJzCLHp4MYCbciJ7A" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.textDecoration = 'underline'} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.textDecoration = 'none'}>The Spot, Bratislava Bottova 2</a> },
   ];
 
   return (
@@ -246,10 +246,10 @@ function Info() {
 /* ----------------------------- TÍM ----------------------------- */
 function Team() {
   const members = [
-    { name: "Hlavný vedúci", role: "Koordinátor programu", initials: "HV", image: adamImg },
-    { name: "Vedúca workshopov", role: "Lektorka & mentor", initials: "VW", image: samoImg },
-    { name: "Outdoor vedúci", role: "Šport & príroda", initials: "OV", image: romanImg },
-    { name: "Mentor podnikavosti", role: "Founder coach", initials: "MP" },
+    { name: "Hlavný vedúci Adam", role: "Koordinátor programu", initials: "HV", image: adamImg },
+    { name: "Vedúci workshopov Samo", role: "Lektorka & mentor", initials: "VW", image: samoImg },
+    { name: "Outdoor vedúci Martin", role: "Šport & príroda", initials: "OV", image: romanImg },
+    { name: "Mentor podnikavosti Teo", role: "Founder coach", initials: "MP", image: teoImg },
   ];
 
   return (
@@ -283,10 +283,10 @@ function Team() {
                   <img
                     src={m.image}
                     alt={m.name}
-                    className="h-48 w-48 shrink-0 object-cover rounded-full"
+                    className="h-36 w-36 shrink-0 object-cover rounded-full"
                   />
                 ) : (
-                  <div className="flex h-48 w-48 shrink-0 items-center justify-center bg-primary text-primary-foreground font-display text-lg font-bold rounded-full">
+                  <div className="flex h-36 w-36 shrink-0 items-center justify-center bg-primary text-primary-foreground font-display text-lg font-bold rounded-full">
                     {m.initials}
                   </div>
                 )}
@@ -313,24 +313,41 @@ function Partners() {
         <div className="eyebrow text-primary-foreground/60">Partneri & podpora</div>
         <h2 className="display-lg mt-4 max-w-3xl">
           Tábor podporuje coworking{" "}
-          <span className="text-primary-foreground/60">The Spot.</span>
+          <span className="text-primary-foreground/60">The Spot</span>
         </h2>
         <p className="mt-6 max-w-xl text-base text-primary-foreground/70">
-          Spolupracujeme so sponzormi, partnerskými organizáciami a osobnosťami zo slovenskej
-          startup scény, ktoré k nám prídu viesť workshopy.
+          Spolupracujeme s partnerskými organizáciami a osobnosťami z celého Slovenska.
         </p>
 
         <div className="mt-12 grid gap-px bg-primary-foreground/15 sm:grid-cols-2 md:grid-cols-4">
-          {["The Spot", "Partner 02", "Partner 03", "Partner 04"].map((p) => (
-            <div
-              key={p}
-              className="bg-primary aspect-[3/2] flex items-center justify-center"
-            >
-              <span className="font-display text-lg font-bold tracking-tight opacity-80">
-                {p}
-              </span>
-            </div>
-          ))}
+          <div className="bg-primary aspect-video flex items-center justify-center p-8">
+            <img
+              src={foundersImg}
+              alt="Founders"
+              className="max-h-24 w-auto object-contain"
+            />
+          </div>
+          <div className="bg-primary aspect-video flex items-center justify-center p-8">
+            <img
+              src={spotLogoImg}
+              alt="The Spot"
+              className="max-h-24 w-auto object-contain"
+            />
+          </div>
+          <div className="bg-primary aspect-video flex items-center justify-center p-8">
+            <img
+              src={aerostacksImg}
+              alt="Aerostacks"
+              className="max-h-24 w-auto object-contain"
+            />
+          </div>
+          <div className="bg-primary aspect-video flex items-center justify-center p-8">
+            <img
+              src={smndImg}
+              alt="SMND"
+              className="max-h-24 w-auto object-contain"
+            />
+          </div>
         </div>
       </div>
     </section>

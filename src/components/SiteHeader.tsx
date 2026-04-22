@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const links = [
   { href: "#vizia", label: "Vízia" },
@@ -11,23 +11,9 @@ const links = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors ${
-        scrolled
-          ? "bg-background/95 backdrop-blur border-b border-border"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
       <div className="container-px mx-auto flex h-16 max-w-7xl items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <span className="inline-block h-3 w-3 bg-primary" aria-hidden />

@@ -163,7 +163,7 @@ function PrihlaskaPage() {
                   { v: "second", l: "2. turnus — druhý júlový týždeň" },
                   { v: "any", l: "Je mi to jedno (jeden z prvých dvoch)" },
                   { v: "other", l: "Iný termín" },
-                ].map((opt) => (
+                ].map((opt, i) => (
                   <label
                     key={opt.v}
                     className="bg-background flex items-center gap-4 p-4 cursor-pointer hover:bg-secondary transition-colors"
@@ -174,6 +174,7 @@ function PrihlaskaPage() {
                       value={opt.v}
                       checked={selectedTurnus === opt.v}
                       onChange={(e) => setSelectedTurnus(e.target.value)}
+                      defaultChecked={i === 0}
                       className="h-4 w-4 accent-primary"
                     />
                     <span className="text-sm font-medium">{opt.l}</span>
@@ -186,7 +187,7 @@ function PrihlaskaPage() {
                     label="Aký termín by vám vyhovoval?" 
                     name="preferred_turnus_other" 
                     maxLength={500}
-                    placeholder="Napr. august, september, alebo konkrétny dátum…"
+                    placeholder=""
                   />
                 </div>
               )}
